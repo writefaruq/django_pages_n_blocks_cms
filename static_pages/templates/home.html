@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+
+{% block topnav %}
+    {% for page in static_pages %}
+      {% if page.active %}
+        {% if page.homepage %}
+        <li>
+                    <a  href="{{ request.path }}/"  tabindex="1">
+                    <span class="active">  &nbsp;&nbsp; &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;&nbsp; </span>
+                    </a>
+          </li>
+        {% else %} 
+     
+            <li><a  href="{{ request.path }}/pages/{{ page.title|lower|slugify }}">
+                    <span class="inactive">&nbsp;&nbsp; &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;&nbsp;  </span>
+                </a>
+            </li>
+         {% endif %}
+      {% endif %}
+
+{% endfor %}
+{% endblock %}
+
+
+{% block banner %}
+<div class="banner">
+           <h1> Welcome banner </h1>
+</div>
+{% endblock %}
+
+
+{% block pageblocks %}
+
+         {% for page_block in page_blocks %}
+           {% if page_block.target_page.id == 1 %}
+           <div class="block">
+               <div class="headline">
+              {{ page_block.headline }}
+               </div>
+
+               <div class="clearfloats">
+               <img src="/media/{{ page_block.image }}" alt="{{ page_block.image }}" />
+               <p> {{ page_block.short_description|truncatewords:50 }} </p>
+               </div>
+
+               <div class="readmore">
+               <a href="/pages/services"> Read more...</a>
+               </div>
+
+           </div>
+           {% endif %}
+         {% endfor %}
+
+{% endblock %}
+
+
+
+
+
+

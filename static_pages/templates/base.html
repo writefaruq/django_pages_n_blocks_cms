@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+        <title>Django Pages-n-Blocks CMS </title>
+
+        <link href="/media/css/style.css" rel="stylesheet" type="text/css" />
+        <script type= "text/javascript" language="javascript"
+                src="/media/js/jquery-1.4.4.min.js">
+        </script>
+        <!--        <script type="text/javascript">
+                    $(document).ready(function() {
+
+                        $("ul#menuList li a span.active").css('color', '#fff');
+
+                        $("ul#menuList li a span").click(function() {
+                        //alert("clicked ");
+                        //$("ul#menuList li a span.active").css('color', '#000');
+                        $("ul#menuList li a span.active").toggleClass('active');
+                         //$(this).parent().addClass('active');
+
+                        $("ul#menuList li a span.inactive").toggleClass("inactive");
+                        //$("ul#menuList li a span.inactive").addClass("active");
+
+                          //$(this).slideUp();
+                          //$(this).css('background-color', '#658fc3');
+                          //$("ul#menuList li a#current").css('background-color', '#8c8e92');
+
+
+                     });
+                    });
+                </script>-->
+
+        <script type = "text/javascript" >
+            $(function() {
+                $("#menuList li").each(function() {
+                    $(this).click(function(event) {
+
+                        $("#menuList li").removeClass("high");
+                        $(this).addClass("high");
+
+                        var ul = $(this).children("ul");
+                        var span = $(this).children("span");
+                        if (ul.html() != null) {
+                            if (ul.css("display") == "none") {
+                                ul.css("display", "block");
+                                span.addClass("up");
+                            } else {
+                                ul.css("display", "none");
+                                span.removeClass("up");
+                            }
+                            event.stopPropagation();
+                        } else {
+                            event.stopPropagation();
+                        };
+                    });
+                });
+                return false;
+            });
+        </script>
+
+
+        <style>
+            .high{color:red}
+        </style>
+
+
+    </head>
+
+
+    <body>
+
+        <div id="header">
+            <div class="logo">
+                <img src="/media/images/logo.png" alt="Django Pages-n-Blocks CMS Logo" />
+            </div>
+
+            <div id="menubar">
+                <div id="navigationMenu">
+                    <ul id="menuList">
+
+                        {% block topnav %}
+                        {% endblock %}
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!--
+        <div class="highlight_block">
+            Highlight_block
+        </div>
+
+        <div class="content_block">
+            Content block
+        </div>
+        -->
+
+
+        {% block banner %}
+        {% endblock %}
+
+
+        {% block pageblocks %}
+        {% endblock %}
+
+
+        {% block page_content %}
+        {% endblock %}
+
+
+        <div id="footer">
+            <div style="clear:both;"></div>
+            <p> &copy; 2011 Django Pages-n-Blocks CMS. <br /> By M O Faruque Sarker (writefaruq@gmail.com) </p>
+        </div>
+
+    </body>
+
+</html>

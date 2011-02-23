@@ -1,0 +1,120 @@
+{% extends "home.html" %}
+{% load custom_tags %}
+
+
+{% block banner %}
+
+<div class="banner">
+<!--           <h1> Welcome banner </h1>-->
+</div>
+
+{% endblock %}
+
+
+{% block pageblocks %}
+{% if page_title != "contact" %}
+<div class="page_highlight">
+         {% for page_block in page_highlights %}
+           {% if page_block.target_page.title|lower|slugify == page_title %}
+           <div class="block_otherpages">
+               <div class="headline">
+              {{ page_block.headline }}
+               </div>
+               <div class="clearfloats2">
+               <img src="/media/{{ page_block.image }}" alt="{{ page_block.image }}" />
+               <p> {{ page_block.short_description|truncchar:500 }} </p>
+               </div>
+           </div>
+           {% endif %}
+               {%  if page_block.target_page.title|lower|slugify == "contact" %}
+               {% block contact_form %}
+               {% endblock %}
+          {% endif %}
+         {% endfor %}
+
+</div>
+{% endif %}
+{% endblock %}
+
+{# -------------------- main page content ----------------------- #}
+
+{% block page_content %}
+
+
+<div class="page_content">
+    
+           {% for page_block in page_contents %}
+                      
+           {% if  page_block.target_page.title|lower|slugify == page_title %}
+<!--           <h1> {{page_block.target_page.title }}  </h1>-->
+           <div class="block_content">
+               <div class="headline">
+              {{ page_block.headline }}
+               </div>
+               <img src="/media/{{ page_block.image }}" alt="{{ page_block.image }}" align="left"/>
+               <p> {{ page_block.short_description }} </p>
+           </div>
+           {% endif %}
+
+
+           
+         {% endfor %}
+       
+</div>
+
+
+
+<!--<div class="side_highlight">
+           <h2> Customer Stories </h2>
+           
+            {% for feedback in customer_feedbacks %}
+
+
+           <div class="block_quote">
+               <div class="headline">
+               
+               {{ feedback.company }}
+                </div>
+               
+               <img src="/media/{{ feedback.company.logo }}" alt="{{ feedback.company }}" align="left"/>
+               <br />
+               <blockquote>
+                   <br /> 
+                   <p> {{feedback.feedback_quote }} </p> </blockquote>
+               <cite> {{feedback.person_name }} <br />
+                {{feedback.person_title }} <br /> {{feedback.company }} </cite>
+           </div>
+
+         {% endfor %}
+
+</div>-->
+
+
+<div class="side_highlight">
+<!--           <h2> Customer Stories </h2>-->
+
+         {% for page_block in right_highlights %}
+           {% if page_block.target_page.title|lower|slugify == page_title %}
+<!--           <h1> {{page_block.target_page.title }}  </h1>-->
+           <div class="block_otherpages">
+               <div class="headline">
+              {{ page_block.headline }}
+               </div>
+               <img src="/media/{{ page_block.image }}" alt="{{ page_block.image }}" align="left"/>
+               <p> {{ page_block.short_description }} </p>
+           </div>
+           {% endif %}
+
+
+
+        {% endfor %}
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
