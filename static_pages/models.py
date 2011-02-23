@@ -17,6 +17,9 @@ MENU_ORDER_CHOICES = (
 
 # Static pages for top menu and footer
 class StaticPage(models.Model):
+    '''
+    Menus should be generated using these pages.
+    '''
     title = models.CharField( max_length=150)
     flash_file = models.FileField(upload_to='images/', blank=True, null=True)
     #in_topmenu = models.BooleanField()
@@ -55,6 +58,9 @@ BLOCK_CATEGORY = (
 )
 
 class PageBlock(models.Model):
+    '''
+    Each page consits of different kinds of blocks
+    '''
     # visible attributes
     headline = models.CharField(max_length=150)
     short_description = models.TextField()
@@ -62,10 +68,10 @@ class PageBlock(models.Model):
     image = models.FileField(upload_to='images/test_etc/', blank=True)
     # positional attributes
     target_page = models.ForeignKey(StaticPage, null=True, blank=True )
-    active = models.BooleanField()
-    priority = models.CharField(max_length=1, choices=HIGHLIGHT_PRIORITY, blank=True)
-    size = models.CharField(max_length=1, choices=BLOCK_SIZE, blank=True)
-    category = models.CharField(max_length=15, choices=BLOCK_CATEGORY, blank=True)
+    active = models.BooleanField() # can be used to show/hide
+    priority = models.CharField(max_length=1, choices=HIGHLIGHT_PRIORITY, blank=True) # for ordering
+    size = models.CharField(max_length=1, choices=BLOCK_SIZE, blank=True) # for css dispaly
+    category = models.CharField(max_length=15, choices=BLOCK_CATEGORY, blank=True) # for positioning
 
 
     def __unicode__(self):
