@@ -5,15 +5,15 @@
     {% for page in static_pages %}
       {% if page.active %}
         {% if page.homepage %}
-        <li>
+        <li class="active">
                     <a  href="{{ request.path }}/"  tabindex="1">
-                    <span class="active">  &nbsp;&nbsp; &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;&nbsp; </span>
+                    <span>  &nbsp;&nbsp; &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;&nbsp; </span>
                     </a>
           </li>
         {% else %} 
      
             <li><a  href="{{ request.path }}/pages/{{ page.title|lower|slugify }}">
-                    <span class="inactive">&nbsp;&nbsp; &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;&nbsp;  </span>
+                    <span>&nbsp;&nbsp; &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;&nbsp;  </span>
                 </a>
             </li>
          {% endif %}

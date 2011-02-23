@@ -107,33 +107,15 @@ div#menubar {
 }
 
  #menuList li.active {
-    background-color: #658fc3;
+    background-color: #658fc3; 
     bottom: 13px;
-    color: #fff;
+    color: #c08e00;
     display: inline;
     margin: 0 4px;
-    padding: 10px 0;
+    padding: 9px 5px;
     position: relative;
 } 
 
-/*.active {
-    background-color: #658fc3;
-}*/
-
-/*#menuList li a#active {
-    background-color: #658fc3;
-    border-bottom: none;
-    border-left: 1px solid #063; 
-     border-right: 1px solid #063; 
-     border-top: 1px solid #063; 
-    bottom: 0;
-    color: #fff;
-    cursor: text;
-    margin: 0;
-    padding: 10px 10px 0 7px;
-    position: relative;
-    right: 0;
-}*/
 
 /* ---------- MODULE---------- */
 .module { 

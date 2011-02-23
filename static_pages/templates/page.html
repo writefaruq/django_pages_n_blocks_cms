@@ -1,6 +1,28 @@
 {% extends "home.html" %}
 {% load custom_tags %}
 
+{% block topnav %}
+    {% for page in static_pages %}
+      {% if page.active %}
+        {% if page_title == page.title|lower|slugify %}
+        <li class ="active">
+                    <a  href="{{ request.path }}/"  tabindex="1">
+                    <span>  &nbsp;&nbsp; &nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp; </span>
+                    </a>
+          </li>
+        {% else %}
+
+            <li><a  href="{{ request.path }}/pages/{{ page.title|lower|slugify }}">
+                    <span>&nbsp;&nbsp; &nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;  </span>
+                </a>
+            </li>
+         {% endif %}
+      {% endif %}
+
+{% endfor %}
+{% endblock %}
+
+
 
 {% block banner %}
 
@@ -63,35 +85,7 @@
 </div>
 
 
-
-<!--<div class="side_highlight">
-           <h2> Customer Stories </h2>
-           
-            {% for feedback in customer_feedbacks %}
-
-
-           <div class="block_quote">
-               <div class="headline">
-               
-               {{ feedback.company }}
-                </div>
-               
-               <img src="/media/{{ feedback.company.logo }}" alt="{{ feedback.company }}" align="left"/>
-               <br />
-               <blockquote>
-                   <br /> 
-                   <p> {{feedback.feedback_quote }} </p> </blockquote>
-               <cite> {{feedback.person_name }} <br />
-                {{feedback.person_title }} <br /> {{feedback.company }} </cite>
-           </div>
-
-         {% endfor %}
-
-</div>-->
-
-
 <div class="side_highlight">
-<!--           <h2> Customer Stories </h2>-->
 
          {% for page_block in right_highlights %}
            {% if page_block.target_page.title|lower|slugify == page_title %}
