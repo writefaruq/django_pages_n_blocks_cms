@@ -1,4 +1,4 @@
-{% extends "home.html" %}
+{% extends "base.html" %}
 {% load custom_tags %}
 
 {% block topnav %}
@@ -7,13 +7,13 @@
         {% if page_title == page.title|lower|slugify %}
         <li class ="active">
                     <a  href="{{ request.path }}/"  tabindex="1">
-                    <span>  &nbsp;&nbsp; &nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp; </span>
+                    <span>  &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; </span>
                     </a>
           </li>
         {% else %}
 
             <li><a  href="{{ request.path }}/pages/{{ page.title|lower|slugify }}">
-                    <span>&nbsp;&nbsp; &nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;  </span>
+                    <span>&nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; </span>
                 </a>
             </li>
          {% endif %}
@@ -26,15 +26,15 @@
 
 {% block banner %}
 
-<div class="banner">
-<!--           <h1> Welcome banner </h1>-->
-</div>
+<!--<div class="banner">
+           <h1> Welcome banner </h1>
+</div>-->
 
 {% endblock %}
 
 
 {% block pageblocks %}
-{% if page_title != "contact" %}
+<!--{% if page_title != "contact" %}
 <div class="page_highlight">
          {% for page_block in page_highlights %}
            {% if page_block.target_page.title|lower|slugify == page_title %}
@@ -55,7 +55,7 @@
          {% endfor %}
 
 </div>
-{% endif %}
+{% endif %}-->
 {% endblock %}
 
 {# -------------------- main page content ----------------------- #}

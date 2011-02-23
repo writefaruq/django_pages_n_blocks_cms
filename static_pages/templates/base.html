@@ -12,62 +12,6 @@
         <script type= "text/javascript" language="javascript"
                 src="/media/js/jquery-1.4.4.min.js">
         </script>
-        <!--        <script type="text/javascript">
-                    $(document).ready(function() {
-
-                        $("ul#menuList li a span.active").css('color', '#fff');
-
-                        $("ul#menuList li a span").click(function() {
-                        //alert("clicked ");
-                        //$("ul#menuList li a span.active").css('color', '#000');
-                        $("ul#menuList li a span.active").toggleClass('active');
-                         //$(this).parent().addClass('active');
-
-                        $("ul#menuList li a span.inactive").toggleClass("inactive");
-                        //$("ul#menuList li a span.inactive").addClass("active");
-
-                          //$(this).slideUp();
-                          //$(this).css('background-color', '#658fc3');
-                          //$("ul#menuList li a#current").css('background-color', '#8c8e92');
-
-
-                     });
-                    });
-                </script>-->
-
-        <script type = "text/javascript" >
-            $(function() {
-                $("#menuList li").each(function() {
-                    $(this).click(function(event) {
-
-                        $("#menuList li").removeClass("high");
-                        $(this).addClass("high");
-
-                        var ul = $(this).children("ul");
-                        var span = $(this).children("span");
-                        if (ul.html() != null) {
-                            if (ul.css("display") == "none") {
-                                ul.css("display", "block");
-                                span.addClass("up");
-                            } else {
-                                ul.css("display", "none");
-                                span.removeClass("up");
-                            }
-                            event.stopPropagation();
-                        } else {
-                            event.stopPropagation();
-                        };
-                    });
-                });
-                return false;
-            });
-        </script>
-
-
-        <style>
-            .high{color:red}
-        </style>
-
 
     </head>
 
@@ -92,16 +36,6 @@
 
         </div>
 
-        <!--
-        <div class="highlight_block">
-            Highlight_block
-        </div>
-
-        <div class="content_block">
-            Content block
-        </div>
-        -->
-
 
         {% block banner %}
         {% endblock %}
@@ -117,7 +51,7 @@
 
         <div id="footer">
             <div style="clear:both;"></div>
-            <p> &copy; 2011 Django Pages-n-Blocks CMS. <br /> By M O Faruque Sarker (writefaruq@gmail.com) </p>
+            <p> &copy; 2011 Django-Pages-n-Blocks-CMS </p>
         </div>
 
     </body>
