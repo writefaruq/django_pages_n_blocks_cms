@@ -85,7 +85,7 @@ div#menubar {
 }
 
 #menuList li a {
-    /*background-color: #8c8e92; */
+    background-color: #658fc3;
     border: 0px solid #8c8e92;
     bottom: 5px;
     color: #000;
@@ -106,10 +106,10 @@ div#menubar {
     right: 1px;
 }
 
- #menuList li.active {
-    background-color: #658fc3; 
-    bottom: 13px;
-    color: #c08e00;
+ #menuList li.active a {
+    /*background-color: #658fc3;*/
+    /*bottom: 13px;*/
+    color: #fff;
     display: inline;
     margin: 0 4px;
     padding: 9px 5px;
@@ -201,7 +201,7 @@ div#menubar {
     height:250px;
     width: 900px;
     border: 4px solid #cfe3f2;
-    background: #fff; /*url(../images/itxl.png); */
+    background: #fff; /*url(../images/xyz.png); */
 }
 
 .page_content {
