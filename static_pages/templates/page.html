@@ -4,22 +4,27 @@
 {% block topnav %}
     {% for page in static_pages %}
       {% if page.active %}
-        {% if page_title == page.title|lower|slugify %}
-        <li class ="active">
-                    <a  href="{{ request.path }}/"  tabindex="1">
-                    <span>  &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; </span>
+        {% if page.homepage %}
+                <li>
+                    <a  href="{{ request.path }}/" >
+                    <span>  &nbsp;&nbsp; &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;&nbsp; </span>
                     </a>
-          </li>
-        {% else %}
-
+                </li>
+        {% else %} {% if page_title == page.title|lower|slugify %}
+            <li class ="active">
+                        <a  href="{{ request.path }}/pages/{{ page.title|lower|slugify }}">
+                        <span>  &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; </span>
+                        </a>
+              </li>
+        {% else %} 
             <li><a  href="{{ request.path }}/pages/{{ page.title|lower|slugify }}">
                     <span>&nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; </span>
                 </a>
             </li>
-         {% endif %}
-      {% endif %}
+        {% endif %} {% endif %}  <!-- end if  page_title == page.title|lower|slugify -->
+    {% endif %} <!-- end if page.active -->
+  {% endfor %} <!-- end for page in static_pages -->
 
-{% endfor %}
 {% endblock %}
 
 

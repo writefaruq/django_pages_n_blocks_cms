@@ -25,7 +25,20 @@
 
 {% block banner %}
 <div class="banner">
-           <h1> Welcome banner </h1>
+<!--           <h1> Welcome banner </h1>-->
+<ul class="slideshow">
+    {% for img in slide_images %}
+    	<li class="show">
+		<a href="#">
+			<img src="{{ img.src }}"
+				 width="{{ img.width }}"
+				 height="{{ img.height }}"
+				 title="{{ img.title }}"
+				 alt="{{ img.alt }}"/>
+		</a>
+	</li>
+     {% endfor %}
+</ul>
 </div>
 {% endblock %}
 

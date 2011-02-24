@@ -18,8 +18,9 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
 
-    (r'^pages/(?P<page_name>)', 'static_pages.views.page_view'),
-
+    #(r'^pages/pages/home', 'static_pages.views.home_view'),
+    #(r'^pages/(?P<page_name>)', 'static_pages.views.page_view'),
+    #(r'^pages/(?P<page_name>)', 'static_pages.views.page_view'),
 )
 
 

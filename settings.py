@@ -97,4 +97,5 @@ INSTALLED_APPS = (
      'django.contrib.admindocs',
     # my apps
     'static_pages',
+    'slideshow',
 )
