@@ -14,6 +14,9 @@ def home_view(request):
                               'static_pages': v.static_pages,
                               'page_blocks': v.page_blocks,
                               'slide_images': v.slide_images,
+                              'page_highlights': v.page_blocks.filter(category = 'highlight'), # see model
+                              'page_contents': v.page_blocks.filter(category = 'content'),
+                              'right_highlights': v.page_blocks.filter(category = 'right'),
                               })
 
 

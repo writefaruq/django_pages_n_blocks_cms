@@ -64,7 +64,7 @@ class PageBlock(models.Model):
     # visible attributes
     headline = models.CharField(max_length=150)
     short_description = models.TextField()
-    more_link = models.URLField(null=True, blank=True)
+    more_link = models.URLField(null=True, blank=True, verify_exists=False)
     image = models.FileField(upload_to='images/test_etc/', blank=True)
     # positional attributes
     target_page = models.ForeignKey(StaticPage, null=True, blank=True )

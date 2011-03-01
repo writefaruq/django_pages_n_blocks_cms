@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% load custom_tags %}
 
+{% block slideshow %}
+      <script type="text/javascript">
+        $(function() {
+          slideShow(8000);
+          $('.products li:odd').css({marginRight: 0});
+          $('body').css({background: '#fffdf0 url({{ request.path }}/media/images/fire.png) no-repeat center 0px'});
+        });
+      </script>
+{% endblock %}
+
 {% block topnav %}
     {% for page in static_pages %}
       {% if page.active %}
@@ -27,10 +37,11 @@
 <div class="banner">
 <!--           <h1> Welcome banner </h1>-->
 <ul class="slideshow">
+   {% if slide_images %}
     {% for img in slide_images %}
     	<li class="show">
 		<a href="#">
-			<img src="{{ img.src }}"
+			<img src="{{ request.url }}/{{ img.src }}"
 				 width="{{ img.width }}"
 				 height="{{ img.height }}"
 				 title="{{ img.title }}"
@@ -38,14 +49,36 @@
 		</a>
 	</li>
      {% endfor %}
+   {% endif %}
 </ul>
 </div>
-{% endblock %}
+<!-- Right special box -->
+<div class="home_side_highlight">
+
+         {% for page_block in right_highlights %}
+           {% if page_block.target_page.id == 1 %}
+<!--           <h1> {{page_block.target_page.title }}  </h1>-->
+           <div class="block_otherpages">
+               <div class="headline">
+              {{ page_block.headline }}
+               </div>
+                {% if page_block.image %}
+               <img src="/media/{{ page_block.image }}" alt="{{ page_block.image }}" align="left"/>
+               {% endif %}
+               <p> {{ page_block.short_description }} </p>
+           </div>
+           {% endif %}
+
+
+
+        {% endfor %}
+</div>
+{% endblock  %} <!-- banner -->
 
 
 {% block pageblocks %}
 
-         {% for page_block in page_blocks %}
+         {% for page_block in page_highlights %}
            {% if page_block.target_page.id == 1 %}
            <div class="block">
                <div class="headline">
@@ -53,12 +86,16 @@
                </div>
 
                <div class="clearfloats">
+               {% if page_block.image %}
                <img src="/media/{{ page_block.image }}" alt="{{ page_block.image }}" />
-               <p> {{ page_block.short_description|truncatewords:50 }} </p>
+               {% endif %}
+               <p> {{ page_block.short_description|truncatewords:50 }} </p>               
                </div>
 
                <div class="readmore">
-               <a href="/pages/services"> Read more...</a>
+                   {% if page_block.more_link %}
+               <a href="{{ page_block.more_link }}"> Read more...</a>
+                   {% endif %}
                </div>
 
            </div>
@@ -66,9 +103,3 @@
          {% endfor %}
 
 {% endblock %}
-
-
-
-
-
-
