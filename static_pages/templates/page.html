@@ -7,7 +7,7 @@
         {% if page.homepage %}
                 <li>
                     <a  href="{{ request.path }}/" >
-                    <span>  &nbsp;&nbsp; &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;&nbsp; </span>
+                    <span>  &nbsp;&nbsp;   {{ page.title }} &nbsp;&nbsp;  </span>
                     </a>
                 </li>
         {% else %} {% if page_title == page.title|lower|slugify %}

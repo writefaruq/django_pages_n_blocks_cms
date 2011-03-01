@@ -17,13 +17,13 @@
         {% if page.homepage %}
         <li class="active">
                     <a  href="{{ request.path }}/"  tabindex="1">
-                    <span>  &nbsp;&nbsp; &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;&nbsp; </span>
+                    <span>  &nbsp;&nbsp;   {{ page.title }} &nbsp;&nbsp;  </span>
                     </a>
           </li>
         {% else %} 
      
             <li><a  href="{{ request.path }}/pages/{{ page.title|lower|slugify }}">
-                    <span>&nbsp;&nbsp; &nbsp;&nbsp;  {{ page.title }} &nbsp;&nbsp; &nbsp;&nbsp;  </span>
+                    <span>&nbsp;&nbsp;   {{ page.title }} &nbsp;&nbsp;   </span>
                 </a>
             </li>
          {% endif %}
