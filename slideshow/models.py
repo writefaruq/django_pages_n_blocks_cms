@@ -5,7 +5,7 @@ from django.contrib import admin
 # Create your models here.
 
 class SlideImage(models.Model):
-    src = models.FileField(upload_to='media/images')
+    src = models.FileField(upload_to='images/')
     width = models.IntegerField()
     height =  models.IntegerField()
     title = models.CharField(max_length=150)

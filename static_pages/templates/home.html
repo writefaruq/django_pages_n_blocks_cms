@@ -41,7 +41,7 @@
     {% for img in slide_images %}
     	<li class="show">
 		<a href="#">
-			<img src="{{ request.url }}/{{ img.src }}"
+			<img src="{{ request.url }}/media/{{ img.src }}"
 				 width="{{ img.width }}"
 				 height="{{ img.height }}"
 				 title="{{ img.title }}"
@@ -65,7 +65,9 @@
                 {% if page_block.image %}
                <img src="/media/{{ page_block.image }}" alt="{{ page_block.image }}" align="left"/>
                {% endif %}
+               {% autoescape off %}
                <p> {{ page_block.short_description }} </p>
+               {% endautoescape %}
            </div>
            {% endif %}
 
@@ -89,7 +91,9 @@
                {% if page_block.image %}
                <img src="/media/{{ page_block.image }}" alt="{{ page_block.image }}" />
                {% endif %}
+               {% autoescape off %}
                <p> {{ page_block.short_description|truncatewords:50 }} </p>               
+               {% endautoescape%}
                </div>
 
                <div class="readmore">

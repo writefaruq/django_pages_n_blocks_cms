@@ -79,7 +79,9 @@
                 {% if page_block.image %}
                <img src="/media/{{ page_block.image }}" alt="{{ page_block.image }}" align="left"/>
                {% endif %}
-               <p> {{ page_block.short_description }} </p>
+               {% autoescape off %}
+                 <p> {{ page_block.short_description }} </p>
+               {% endautoescape %}
            </div>
            {% endif %}           
          {% endfor %}
@@ -99,7 +101,9 @@
                 {% if page_block.image %}
                <img src="/media/{{ page_block.image }}" alt="{{ page_block.image }}" align="left"/>
                {% endif %}
-               <p> {{ page_block.short_description }} </p>
+               {% autoescape off %}
+                 <p> {{ page_block.short_description }} </p>
+               {% endautoescape %}
            </div>
            {% endif %}
         {% endfor %}
