@@ -4,3 +4,10 @@ Setup info
     $ pip install -r requirements.txt
     $ ./manage.py syncdb
     $ ./manage.py runserver
+
+
+Hints to activate slide show
+----------------------------
+
+* Add images to `media/images` directory
+* Add them from `admin`

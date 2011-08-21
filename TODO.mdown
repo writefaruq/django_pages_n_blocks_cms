@@ -1,0 +1,11 @@
+Enhancements
+-----------
+
+* Add site title on homepage, rather than using in site logo only
+* Add page titele based on page
+* Add `blog/` app
+
+
+Supports
+--------
+* django-south
