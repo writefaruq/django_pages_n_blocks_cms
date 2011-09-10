@@ -1,29 +1,18 @@
 from django.db import models
 from django.contrib import admin
 
-# Menu order choices
-MENU_ORDER_CHOICES = (
-    (1, 'First'),
-    (2, 'Second'),
-    (3, 'Third'),
-    (4, 'Fouth'),
-    (5, 'Fifth'),
-    (6, 'Sixth'),
-    (7, 'Seventh'),
-    (8, 'Eighth'),
-    (9, 'Ninth'),
-    (10, 'Tenth'),
-)
 
-# Static pages for top menu and footer
 class StaticPage(models.Model):
-    '''
+    """
+    # Static pages for top menu and footer
     Menus should be generated using these pages.
-    '''
+    """
+    # Menu order choices
+    MENU_ORDER_CHOICES = tuple(
+		zip(range(1,7), ('First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh'))
+    )
     title = models.CharField( max_length=150)
     flash_file = models.FileField(upload_to='images/', blank=True, null=True)
-    #in_topmenu = models.BooleanField()
-    #in_footer = models.BooleanField()
     position_in_menu = models.PositiveIntegerField(choices=MENU_ORDER_CHOICES)
     active = models.BooleanField()
     homepage = models.BooleanField(blank=True)
@@ -36,31 +25,31 @@ class StaticPage(models.Model):
         return self.title
 
 
-
-HIGHLIGHT_PRIORITY = (
-    ('1', "High"),
-    ('2', "Medium"),
-    ('3', "Low"),
-)
-
-BLOCK_SIZE = (
-    ('1', "Large"), # full or 75% width
-    ('2', "Medium"), # 33% width
-    ('3', "Small"), # page submenu
-    ('4', "Mini"), # page submenu
-)
-
-BLOCK_CATEGORY = (
-    ('highlight', "Highlight"),
-    ('content', "PageContent"),
-    ('left', "LeftSidebar"),
-    ('right', "RightSidebar"), 
-)
-
 class PageBlock(models.Model):
-    '''
+    """
     Each page consits of different kinds of blocks
-    '''
+    """
+
+    HIGHLIGHT_PRIORITY = (
+		('1', "High"),
+		('2', "Medium"),
+		('3', "Low"),
+	)
+
+    BLOCK_SIZE = (
+		('1', "Large"), # full or 75% width
+		('2', "Medium"), # 33% width
+		('3', "Small"), # page submenu
+		('4', "Mini"), # page submenu
+	)
+
+    BLOCK_CATEGORY = (
+		('highlight', "Highlight"),
+		('content', "PageContent"),
+		('left', "LeftSidebar"),
+		('right', "RightSidebar"), 
+	)
+
     # visible attributes
     headline = models.CharField(max_length=150)
     short_description = models.TextField()
