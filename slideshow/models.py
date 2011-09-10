@@ -2,9 +2,10 @@ from django.db import models
 from django.contrib import admin
 
 
-# Create your models here.
-
 class SlideImage(models.Model):
+    """
+    Manage image uploads for slideshow by JS
+    """
     src = models.FileField(upload_to='images/')
     width = models.IntegerField()
     height =  models.IntegerField()
